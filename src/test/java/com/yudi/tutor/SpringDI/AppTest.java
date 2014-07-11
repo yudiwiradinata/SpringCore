@@ -1,9 +1,11 @@
 package com.yudi.tutor.SpringDI;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.yudi.tutor.SpringCore.Common.CustomerCollections;
@@ -17,13 +19,25 @@ import com.yudi.tutor.SpringCore.SinglePrototype.CustomerService;
  */
 public class AppTest {
 
-	ApplicationContext context;
+	ConfigurableApplicationContext context;
 	@Before
 	public void beforeBegin(){
 		context = new ClassPathXmlApplicationContext("SpringBeans.xml");
 	}
 	
+	@After
+	public void afterBegin() {
+		// TODO Auto-generated method stub
+		context.close();
+	}
 	@Test
+	public void testDependencyInjection(){
+		com.yudi.tutor.SpringCore.Common.Customer customer = (com.yudi.tutor.SpringCore.Common.Customer) context.getBean("customerBean");
+		System.out.println(customer);
+		
+	}
+	
+	
 	public void testCollection(){
 		CustomerCollections customerCollections = (CustomerCollections) context.getBean("customerColl");
 		System.out.println("Customer Collections :"+customerCollections);
