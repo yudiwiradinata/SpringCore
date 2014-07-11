@@ -1,4 +1,4 @@
-package com.yudi.tutor.SpringDI;
+package com.yudi.tutor.SpringCore;
 
 /**
  * Hello world!
