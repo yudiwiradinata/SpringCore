@@ -1,7 +1,68 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans		
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="customerColl" class="com.yudi.tutor.SpringCore.Common.CustomerCollections">
+		<property name="lists">
+			<list>
+				<value>1</value>
+				<ref bean="person2" />
+				<bean class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2">
+					<property name="name" value="Yudi" />
+					<property name="address" value="mampang" />
+					<property name="age" value="23" />
+				</bean>
+				<value>Test</value>
+			</list>
+		</property>
+
+		<property name="sets">
+			<set>
+				<value>2</value>
+				<ref bean="person2" />
+				<bean class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2">
+					<property name="name" value="Yudi2" />
+					<property name="address" value="mampang2" />
+					<property name="age" value="232" />
+				</bean>
+				<value>Test</value>
+
+			</set>
+
+		</property>
+
+		<property name="maps">
+			<map>
+				<entry key="Key 1" value="1" />
+				<entry key="Key 2" value-ref="person2" />
+				<entry key="Key 3">
+					<bean class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2">
+						<property name="name" value="Yudi3" />
+					<property name="address" value="mampang3" />
+					<property name="age" value="233" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+
+		<property name="props">
+			<props>
+				<prop key="Key 1">tESsttt 4</prop>
+				<prop key="Key 1">tESsttt 45</prop>
+			</props>
+		</property>
+
+
+
+	</bean>
+
+	<bean id="custService"
+		class="com.yudi.tutor.SpringCore.SinglePrototype.CustomerService"
+		scope="prototype">
+
+	</bean>
 
 	<bean id="hello" class="com.yudi.tutor.SpringCore.DI.HelloWorld">
 		<property name="name" value="Yudi Wira" />
@@ -31,24 +92,12 @@
 			<value>188</value>
 		</constructor-arg>
 	</bean>
-<!-- 
-	<bean id="customer2" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2">
-		<constructor-arg type="java.lang.String">
-			<value>Yudi</value>
-		</constructor-arg>
-		<constructor-arg type="int">
-			<value>34333</value>
-		</constructor-arg>
-		<constructor-arg type="java.lang.String">
-			<value>188</value>
-		</constructor-arg>
-	</bean> 
-	<bean id="person" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Person">
-		<property name="customer">
-			<ref local="customer2" />
-		</property>
-	</bean>
--->
+	<!-- <bean id="customer2" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2"> 
+		<constructor-arg type="java.lang.String"> <value>Yudi</value> </constructor-arg> 
+		<constructor-arg type="int"> <value>34333</value> </constructor-arg> <constructor-arg 
+		type="java.lang.String"> <value>188</value> </constructor-arg> </bean> <bean 
+		id="person" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Person"> <property 
+		name="customer"> <ref local="customer2" /> </property> </bean> -->
 
 	<bean id="person2" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Person">
 		<property name="customer">
