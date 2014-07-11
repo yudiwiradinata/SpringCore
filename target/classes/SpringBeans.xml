@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="hello" class="com.yudi.tutor.SpringCore.DI.HelloWorld">
+		<property name="name" value="Yudi Wira" />
+	</bean>
+
+	<bean id="OutputHelper" class="com.yudi.tutor.SpringCore.LooselyCouple.OutputHelper">
+		<property name="outputGenerator">
+			<ref local="CsvOutputGenerator" />
+		</property>
+	</bean>
+
+	<!-- <bean id="OutputHelperCons" class="com.yudi.tutor.SpringCore.LooselyCouple.OutputHelper"> 
+		<constructor-arg> <ref bean="JsonOutputGenerator"/> </constructor-arg> </bean> -->
+	<bean id="CsvOutputGenerator"
+		class="com.yudi.tutor.SpringCore.LooselyCouple.CsvOutputGenerator" />
+	<bean id="JsonOutputGenerator"
+		class="com.yudi.tutor.SpringCore.LooselyCouple.JsonOutputGenerator" />
+
+	<bean id="customer" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer">
+		<constructor-arg type="java.lang.String">
+			<value>Yudi</value>
+		</constructor-arg>
+		<constructor-arg type="int">
+			<value>34</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value>188</value>
+		</constructor-arg>
+	</bean>
+<!-- 
+	<bean id="customer2" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2">
+		<constructor-arg type="java.lang.String">
+			<value>Yudi</value>
+		</constructor-arg>
+		<constructor-arg type="int">
+			<value>34333</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value>188</value>
+		</constructor-arg>
+	</bean> 
+	<bean id="person" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Person">
+		<property name="customer">
+			<ref local="customer2" />
+		</property>
+	</bean>
+-->
+
+	<bean id="person2" class="com.yudi.tutor.SpringCore.Cons.Ambigu.Person">
+		<property name="customer">
+			<bean class="com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2">
+				<property name="name" value="Yudi" />
+				<property name="address" value="mampang" />
+				<property name="age" value="23" />
+			</bean>
+		</property>
+	</bean>
+</beans>

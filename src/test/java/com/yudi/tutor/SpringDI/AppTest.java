@@ -1,38 +1,35 @@
 package com.yudi.tutor.SpringDI;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Assert;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.yudi.tutor.SpringCore.Cons.Ambigu.Customer;
+import com.yudi.tutor.SpringCore.Cons.Ambigu.Person;
+import com.yudi.tutor.SpringCore.LooselyCouple.OutputHelper;
+
+
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+public class AppTest {
+   
+    @Test
+    public void testAmbiguCustomer(){
+    	ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
+    	
+		OutputHelper helper = (OutputHelper) context.getBean("OutputHelper");
+		helper.generateOutput();
+		
+    	Customer customer = (Customer) context.getBean("customer");
+    	System.out.println(customer);
+    	
+    	Assert.assertNotNull(customer);
+    	
+    	Person person = (Person) context.getBean("person2");
+    	System.out.println(person);
+        
     }
 }
