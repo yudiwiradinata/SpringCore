@@ -22,7 +22,8 @@ public class AppTest {
 	ConfigurableApplicationContext context;
 	@Before
 	public void beforeBegin(){
-		context = new ClassPathXmlApplicationContext("SpringBeans.xml");
+		//context = new ClassPathXmlApplicationContext("SpringBeans.xml");
+		context = new ClassPathXmlApplicationContext("SpringAutowired.xml");
 	}
 	
 	@After
@@ -30,7 +31,8 @@ public class AppTest {
 		// TODO Auto-generated method stub
 		context.close();
 	}
-	@Test
+	
+	
 	public void testDependencyInjection(){
 		com.yudi.tutor.SpringCore.Common.Customer customer = (com.yudi.tutor.SpringCore.Common.Customer) context.getBean("customerBean");
 		System.out.println(customer);

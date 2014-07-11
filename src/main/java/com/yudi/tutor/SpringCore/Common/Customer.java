@@ -1,13 +1,18 @@
 package com.yudi.tutor.SpringCore.Common;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2;
 
+@Component
 public class Customer {
 
 	private String action;
 	private int type;
 	private Customer2 customer2;
 
+	
 	public void setAction(String action) {
 		this.action = action;
 	}
@@ -15,7 +20,8 @@ public class Customer {
 	public String getAction() {
 		return action;
 	}
-
+	
+	
 	public void setType(int type) {
 		this.type = type;
 	}
@@ -24,6 +30,7 @@ public class Customer {
 		return type;
 	}
 
+	@Autowired
 	public void setCustomer2(Customer2 customer2) {
 		this.customer2 = customer2;
 	}
