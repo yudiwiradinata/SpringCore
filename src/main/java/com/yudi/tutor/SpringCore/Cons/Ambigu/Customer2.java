@@ -1,9 +1,6 @@
 package com.yudi.tutor.SpringCore.Cons.Ambigu;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
 public class Customer2 {
 
 	private String name;
@@ -36,17 +33,16 @@ public class Customer2 {
 		return age;
 	}
 	
-	@Autowired
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	@Autowired
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}
 	
-	@Autowired
+
 	public void setAge(int age) {
 		this.age = age;
 	}

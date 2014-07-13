@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.yudi.tutor.SpringCore.Cons.Ambigu.Customer2;
 
-@Component
+
 public class Customer {
 
 	private String action;

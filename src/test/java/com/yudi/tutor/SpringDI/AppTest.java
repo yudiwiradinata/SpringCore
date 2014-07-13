@@ -32,6 +32,14 @@ public class AppTest {
 		context.close();
 	}
 	
+	@Test
+	public void testAutowired() {
+		// TODO Auto-generated method stub
+
+		com.yudi.tutor.SpringCore.Autowired.CustomerService customerService = (com.yudi.tutor.SpringCore.Autowired.CustomerService) context.getBean("custe");
+		customerService.printOutput();
+		//System.out.println(customerService);
+	}
 	
 	public void testDependencyInjection(){
 		com.yudi.tutor.SpringCore.Common.Customer customer = (com.yudi.tutor.SpringCore.Common.Customer) context.getBean("customerBean");
