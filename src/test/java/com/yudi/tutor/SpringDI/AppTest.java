@@ -8,11 +8,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.yudi.tutor.SpringCore.Common.CustomerCollections;
 import com.yudi.tutor.SpringCore.Cons.Ambigu.Customer;
 import com.yudi.tutor.SpringCore.Cons.Ambigu.Person;
 import com.yudi.tutor.SpringCore.LooselyCouple.OutputHelper;
 import com.yudi.tutor.SpringCore.SinglePrototype.CustomerService;
+import com.yudi.tutor.SpringCore.customer.model.CustomerCollections;
 
 /**
  * Unit test for simple App.
@@ -36,13 +36,13 @@ public class AppTest {
 	public void testAutowired() {
 		// TODO Auto-generated method stub
 
-		com.yudi.tutor.SpringCore.Autowired.CustomerService customerService = (com.yudi.tutor.SpringCore.Autowired.CustomerService) context.getBean("custe");
+		com.yudi.tutor.SpringCore.customer.dao.CustomerService customerService = (com.yudi.tutor.SpringCore.customer.dao.CustomerService) context.getBean("custe");
 		customerService.printOutput();
 		//System.out.println(customerService);
 	}
 	
 	public void testDependencyInjection(){
-		com.yudi.tutor.SpringCore.Common.Customer customer = (com.yudi.tutor.SpringCore.Common.Customer) context.getBean("customerBean");
+		com.yudi.tutor.SpringCore.customer.model.Customer customer = (com.yudi.tutor.SpringCore.customer.model.Customer) context.getBean("customerBean");
 		System.out.println(customer);
 		
 	}

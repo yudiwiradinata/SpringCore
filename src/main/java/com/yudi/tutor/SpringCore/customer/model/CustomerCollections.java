@@ -1,4 +1,4 @@
-package com.yudi.tutor.SpringCore.Common;
+package com.yudi.tutor.SpringCore.customer.model;
 
 import java.util.List;
 import java.util.Map;

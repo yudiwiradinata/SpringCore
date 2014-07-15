@@ -1,4 +1,4 @@
-package com.yudi.tutor.SpringCore.Autowired;
+package com.yudi.tutor.SpringCore.customer.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
