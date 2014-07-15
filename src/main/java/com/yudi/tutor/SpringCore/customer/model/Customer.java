@@ -12,6 +12,17 @@ public class Customer {
 	String name;
 	int age;
 
+	
+	public Customer(int custId, String name, int age) {	
+		this.custId = custId;
+		this.name = name;
+		this.age = age;
+	}
+
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public int getCustId() {
 		return custId;
 	}
@@ -36,6 +47,11 @@ public class Customer {
 		this.age = age;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Id :"+custId+" Name :"+name+" Age :"+age;
+	}
 	
 
 }
